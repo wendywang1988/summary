@@ -1,0 +1,22 @@
+1.圆角
+
+      border-top-left-radius:6px;
+
+2.背景渐变：
+http://www.w3cplus.com/css3/new-css3-linear-gradient.html
+
+ps：background-image: -webkit-gradient(linear,left top,right bottom,from(#00afff),to(#3ac367));【从左到右的渐变】
+
+
+      background-image: -webkit-linear-gradient(#4fec50,#42c264);
+      background-image: -moz-linear-gradient(#4fec50,#42c264);
+      background-image: -o-linear-gradient(#4fec50,#42c264);
+      background-image: -ms-linear-gradient(#4fec50,#42c264);
+      background-image: linear-gradient(#4fec50,#42c264);【从上到下的渐变】
+
+
+问题：线性渐变的比例问题eg：80%位置的蓝到20%位置的绿
+
+
+3.点击事件有蓝色阴影
+-webkit-tap-highlight-color:rgba(0,0,0,0);

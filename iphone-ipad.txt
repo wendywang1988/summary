@@ -1,0 +1,50 @@
+1.移动端出现滚动条的时候，滚动的时候不平滑，为了平滑滚动：
+
+-webkit-overflow-scrolling:touch;
+
+2.背景图片设计图要是实际尺寸的2倍 
+
+-webkit-background-size: contain;
+
+3.媒体查询
+
+iphone横屏：
+@media (min-device-width : 320px) and (max-device-width : 480px) and(orientation : landscape) {}
+
+ipad竖屏：
+@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {}
+
+ipad横屏：
+@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {}
+
+4.手机按钮点击下去松开会有闪动，解决这个问题
+-webkit-tap-highlight-color:transparent;
+
+5.手机开发，input输入框会自动校正第一个字母为大写，想取消这个效果：
+input autocapitalize="off"
+
+移动web端input标配属性：autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"
+
+6.修改placeholder的颜色
+::-webkit-input-placeholder {
+   color: #ccc;
+}
+7.存图和命名，IOS平台需要用到大小两套图形，iPhone3和3GS用的是小图，320x480。而iPhone4和4S用的是640x960的分辨率（iPhone5用的是640x1136）因此腰存成两套图，小图直接后缀.png即可，而大图的名字后面需要加一个@2x.png。方便程序区分。
+
+8.居中问题（不用知道要居中块的宽高）
+
+position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%)
+
+9.线性渐变
+background-image:-webkit-gradient(linear, 100% 0%, 0% 0%, from(rgba(0,0,0,.2)), to(rgba(245,245,245,0)));
+
+10.边框透明：
+  background: #efefef;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  border: 5px solid rgba(255,255,255,.1);
+
+11.border设置了1px以后在手机上显示的确是2px；
+解决方案：scale设置成0.5，然后把页面上所有的具体像素值都x2
+
+12.一行宽度为100%  分为两块 ，每块为50%宽这样就刚好分配。但是如果是三块等分，那么33.33%  33.33% 33.34%就会在右边出现白边；然后怀疑是小数点的问题，那么我试了一下33%  33%  34% 结果发现还是有白边。。那就怀疑必须是双数的？于是试了30% 35% 35%这样就ok！！！  无解（winter老师说，这是safari的webkit问题）
